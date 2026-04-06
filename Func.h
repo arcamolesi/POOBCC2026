@@ -1,4 +1,15 @@
 //Func.h
+#include <iostream>
+using namespace std;
+
+#ifndef CARGO_H
+   #include "Cargo.h"
+#endif // CARGO_H
+
+#ifndef FUNCIONARIO_H
+   #define FUNCIONARIO_H
+#endif // FUNCIONARIO_H
+
 class Funcionario: public Cargo{
   private:
       int id;
@@ -38,4 +49,36 @@ class Funcionario: public Cargo{
        cout << "Salario: " << this->salario << endl;
      }
 
+     void ler();
+
 };
+
+void Funcionario::ler(){
+    cout << "\nLer Funcionario\n";
+    int idFunc, idCargo;
+    string nome, cargo;
+    float salario;
+
+    cout << "ID Funcionario: ";
+    cin >> idFunc;
+
+    cout << "Nome: ";
+    cin.ignore();
+    getline(cin, nome);
+
+    cout << "ID Cargo: ";
+    cin >> idCargo;
+
+    cout << "Cargo: ";
+    cin.ignore();
+    getline(cin, cargo);
+
+    cout << "Salario: ";
+    cin >> salario;
+
+    setId(idFunc);
+    setNome(nome);
+    Cargo::setId(idCargo);
+    setCargo(cargo);
+    setSalario(salario);
+}
